@@ -6,6 +6,8 @@ A production-minded hiring assignment built with **Node.js, TypeScript, React, P
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?logo=postgresql&logoColor=white)
 ![Faster Whisper](https://img.shields.io/badge/STT-Faster_Whisper-0b8060)
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Niranjankumar8242/Procuce-AI-Live-transcription)
+
 ## Features
 
 - Live microphone streaming over WebSockets in 2-second PCM chunks
