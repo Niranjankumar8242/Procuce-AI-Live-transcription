@@ -92,22 +92,3 @@ npm run typecheck
 npm test
 npm run build
 ```
-
-## Deployment
-
-The app container can run on Render, Railway, Fly.io, AWS ECS, or any Docker host. It needs:
-
-- a PostgreSQL `DATABASE_URL`;
-- an HTTPS public URL (required for browser microphone permission);
-- `STT_SERVICE_URL` pointing to a deployed `onerahmet/openai-whisper-asr-webservice` instance;
-- at least 2 GB RAM for the default `base` model; use `small` or `medium` for greater accuracy on larger machines.
-
-`render.yaml` provisions the Node app and PostgreSQL. Because model hosting has higher memory requirements, deploy the Whisper image as a separate private service and set its internal URL as `STT_SERVICE_URL`.
-
-## Trade-offs and next steps
-
-This implementation transcribes short sequential chunks to keep the setup portable and the UI responsive. For a high-traffic production system, I would run a continuously stateful streaming engine, add overlapping audio with segment de-duplication, move STT work into a Redis-backed queue, add authentication and user ownership, and store encrypted source audio only when explicitly enabled.
-
-## License
-
-MIT
