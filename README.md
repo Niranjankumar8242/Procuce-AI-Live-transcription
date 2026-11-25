@@ -66,6 +66,17 @@ npm run dev
 The web app runs at `http://localhost:5173`; Vite proxies REST and WebSocket traffic to the API on port 4000.
 The development PostgreSQL container is exposed on host port `5433` to avoid clashing with an existing local PostgreSQL installation.
 
+## Free hosted demo (Render)
+
+The included `render.yaml` creates a free Docker web service and a free PostgreSQL database:
+
+1. Push this repository to GitHub.
+2. Open [Render Blueprints](https://dashboard.render.com/blueprints) and choose **New Blueprint Instance**.
+3. Connect this GitHub repository and accept the detected `render.yaml` configuration.
+4. After the deploy finishes, open the generated `onrender.com` URL in Chrome or Edge and allow microphone access.
+
+The free deployment uses the browser's live speech recognizer for the transcript and PostgreSQL for history/CRUD. This keeps hosting at zero cost; the full self-hosted Faster Whisper service remains available through Docker Compose on a machine with at least 4 GB RAM. Render free services sleep while idle and can take about a minute to wake. Render's free PostgreSQL databases also expire after 30 days, so this option is intended as an assignment demo rather than permanent production hosting.
+
 ## API
 
 | Method | Endpoint | Purpose |

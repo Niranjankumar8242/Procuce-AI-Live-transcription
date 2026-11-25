@@ -23,7 +23,10 @@ export async function transcribePcm(
   timeoutMs = config.STT_REQUEST_TIMEOUT_MS
 ): Promise<SttResult> {
   if (config.STT_DEMO_MODE) {
-    return { text: "Demo audio segment", language: "auto" };
+    // Hosted free-tier deployments use the browser's live speech preview as
+    // the final transcript. Returning an empty fallback prevents placeholder
+    // text from replacing the user's actual words.
+    return { text: "", language: "auto" };
   }
 
   const wav = pcm16ToWav(pcm, sampleRate);
